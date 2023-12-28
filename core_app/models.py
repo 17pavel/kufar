@@ -21,7 +21,9 @@ class Notebooks(models.Model):
     state = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name = "Ноутбуки"
+        verbose_name = "Ноутбук"
+        verbose_name_plural ="Ноутбуки"
+
 
 
     def __str__(self):
@@ -34,6 +36,7 @@ class Images(models.Model):
 
     class Meta:
         verbose_name = "Изображение"
+        verbose_name_plural = "Изоброжения"
 
 
     def __str__(self):
