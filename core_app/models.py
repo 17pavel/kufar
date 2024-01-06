@@ -32,7 +32,7 @@ class Notebooks(models.Model):
 class Images(models.Model):
 
     image = models.URLField(max_length=255, unique=True)
-    notebook = models.ForeignKey(Notebooks, on_delete=models.CASCADE, related_name= "image")
+    notebook = models.ForeignKey(Notebooks, on_delete=models.CASCADE, related_name="images")
 
     class Meta:
         verbose_name = "Изображение"

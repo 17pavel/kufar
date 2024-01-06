@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ notebook.title }} {% endblock %}
+
+{% block content %}
+    <div id="container">
+    <div class="card shadow-sm">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+   <div id="carouselInd" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+
+        {% for img in notebook.image %}
+        {% with forloop.counter0 as i %}
+        <div class="carousel-item {% if i is 0 %}active{% endif %}">
+            <img class="d-block w-100" src="{{ img }}" alt="" style="height: 30rem;">
+        </div>
+        {% endwith %}
+        {% endfor %}
+
+    </div>
+</div>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock %}
