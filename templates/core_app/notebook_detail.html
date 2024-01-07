@@ -3,13 +3,15 @@
 {% block title %} {{ notebook.title }} {% endblock %}
 
 {% block content %}
+    <p class="text-body-secondary"
+       style="font-family: 'JetBrains Mono ExtraBold'; font-size: 25px">{{ notebook.price }} BYN</p>
     <ul class="m6Vr5 _71-or Nr3Ig c1gVV oG6uA OOKij VmC4r">
-    {% for img in notebook.images.all %}
-        <li class="bfetG s8gGl"><img class="gCAIM tJKX9 hp7Pz EJyY0 LQqCm Q-geH tig4a Ek6zc VmC4r"
-                                     src="{{ img }}"
-                                     width="320" height="320" data-qaid="image_preview" fetchpriority="high">
-        </li>
-    {% endfor %}
+        {% for img in notebook.images.all %}
+            <li class="bfetG s8gGl"><img class="gCAIM tJKX9 hp7Pz EJyY0 LQqCm Q-geH tig4a Ek6zc VmC4r"
+                                         src="{{ img }}"
+                                         width="320" height="320" data-qaid="image_preview" fetchpriority="high">
+            </li>
+        {% endfor %}
 
         <li class="bfetG KayoQ">
             <div data-qaid="gallery_attribute_block" class="M3v0L sMgZR IM66u DUxBc -Zy0Z e0Ksx">
@@ -29,7 +31,8 @@
                                 </li>
                                 <li class="YSmsd">
                                     <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span class="_3Trjq ffgjE htldP">Процессор</span>
+                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span
+                                                class="_3Trjq ffgjE htldP">Процессор</span>
                                         </div>
                                         <div data-qaid="Процессор" class="l-GwW fvQVX"><span
                                                 class="_3Trjq htldP">{{ notebook.processor }}</span></div>
@@ -45,7 +48,8 @@
                                 </li>
                                 <li class="YSmsd">
                                     <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span class="_3Trjq ffgjE htldP">Операцива</span>
+                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span
+                                                class="_3Trjq ffgjE htldP">Операцива</span>
                                         </div>
                                         <div data-qaid="Операцива" class="l-GwW fvQVX"><span
                                                 class="_3Trjq htldP">{{ notebook.op_mem }}</span></div>
@@ -53,10 +57,11 @@
                                 </li>
                                 <li class="YSmsd">
                                     <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span class="_3Trjq ffgjE htldP">Диск</span>
+                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span
+                                                class="_3Trjq ffgjE htldP">Диск</span>
                                         </div>
                                         <div data-qaid="Диск" class="l-GwW fvQVX"><span
-                                                class="_3Trjq htldP">{{ notebook.capacity_drive}}</span></div>
+                                                class="_3Trjq htldP">{{ notebook.capacity_drive }}</span></div>
                                     </div>
                                 </li>
                             </ul>
