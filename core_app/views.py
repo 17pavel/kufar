@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.core.paginator import Paginator
 
-from .models import Notebooks
+from .models import Notebooks, Images
 
 
 def notebooks_list(request):
@@ -20,3 +20,7 @@ def notebook_detail(request, pk):
     data = Notebooks.objects.get(pk=pk)
 
     return render(request, "core_app/notebook_detail.html", {"notebook": data})
+
+def test(request):
+    img = Images.objects.get(pk=1)
+    return render(request, "core_app/test.html", {"img": img})
