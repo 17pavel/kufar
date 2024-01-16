@@ -3,78 +3,68 @@
 {% block title %} {{ notebook.title }} {% endblock %}
 
 {% block content %}
-    <p class="text-body-secondary"
-       style="font-family: 'JetBrains Mono ExtraBold'; font-size: 25px">{{ notebook.price }} BYN</p>
-    <ul class="m6Vr5 _71-or Nr3Ig c1gVV oG6uA OOKij VmC4r">
-        {% for img in notebook.images.all %}
-            <li class="bfetG s8gGl"><img class="gCAIM tJKX9 hp7Pz EJyY0 LQqCm Q-geH tig4a Ek6zc VmC4r"
-                                         src="{{ img }}"
-                                         width="320" height="320" data-qaid="image_preview" fetchpriority="high">
-            </li>
-        {% endfor %}
+    <section class="w-100  p-4" style="border-radius: .5rem .5rem 0 0;">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-7">
+                <div class="card text-black">
+                    <i class="fab fa-apple fa-lg pt-3 pb-1 px-3"></i>
 
-        <li class="bfetG KayoQ">
-            <div data-qaid="gallery_attribute_block" class="M3v0L sMgZR IM66u DUxBc -Zy0Z e0Ksx">
-                <div class="hKN0b">
-                    <div class="g7k5_">
-                        <div class="M3v0L zK3wP">
-                            <div class="M3v0L C6zKA"><span class="_3Trjq F7Tdh vj3pM">Характеристики</span>
-                            </div>
-                            <ul class="nujFR nYCd8">
-                                <li class="YSmsd">
-                                    <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span class="_3Trjq ffgjE htldP">Производитель</span>
-                                        </div>
-                                        <div data-qaid="Производитель" class="l-GwW fvQVX"><span
-                                                class="_3Trjq htldP">{{ notebook.manufacturer }}</span></div>
+                    <div id="carouselExample" class="carousel slide" data-bs="carousel">
+                        <ol class="carousel-indicators">
+                            {% for image in notebook.images.all %}
+                                <li data-bs-target="#carouselExample" data-bs-slide-to="{{ forloop.counter0 }}"
+                                    {% if forloop.first %}class="active"{% endif %}></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner">
+                            {% for image in notebook.images.all %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <img src="{{ image.image }}" alt="None" class="d-block w-100">
+                                    <div class="carousel-caption d-none d-md-block">
+
                                     </div>
-                                </li>
-                                <li class="YSmsd">
-                                    <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span
-                                                class="_3Trjq ffgjE htldP">Процессор</span>
-                                        </div>
-                                        <div data-qaid="Процессор" class="l-GwW fvQVX"><span
-                                                class="_3Trjq htldP">{{ notebook.processor }}</span></div>
-                                    </div>
-                                </li>
-                                <li class="YSmsd">
-                                    <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span class="_3Trjq ffgjE htldP">OS</span>
-                                        </div>
-                                        <div data-qaid="OS" class="l-GwW fvQVX"><span
-                                                class="_3Trjq htldP">{{ notebook.os }}</span></div>
-                                    </div>
-                                </li>
-                                <li class="YSmsd">
-                                    <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span
-                                                class="_3Trjq ffgjE htldP">Операцива</span>
-                                        </div>
-                                        <div data-qaid="Операцива" class="l-GwW fvQVX"><span
-                                                class="_3Trjq htldP">{{ notebook.op_mem }}</span></div>
-                                    </div>
-                                </li>
-                                <li class="YSmsd">
-                                    <div class="MafxA IIzXA">
-                                        <div class="l-GwW jo9pB -QO8H HXZwF"><span
-                                                class="_3Trjq ffgjE htldP">Диск</span>
-                                        </div>
-                                        <div data-qaid="Диск" class="l-GwW fvQVX"><span
-                                                class="_3Trjq htldP">{{ notebook.capacity_drive }}</span></div>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                            {% endfor %}
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="M3v0L">
-                        <p>{{ notebook.description }}</p>
+
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5 class="card-title">{{ notebook.title }}</h5>
+                            <p class="text-muted mb-4">{{ notebook.description }}</p>
+                        </div>
+                        <div>
+                            {% if notebook.manufacturer %}
+                                <div class="d-flex justify-content-between">
+                                    <span>Производитель</span><span>{{ notebook.manufacturer }}</span>
+                                </div>
+                            {% endif %}
+
+
+                        </div>
+                        <div class="d-flex justify-content-between total font-weight-bold mt-4">
+                            <span>Цена</span><span>{{ notebook.price }} BYN</span>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <br>
+                            <br>
+                            <br>
+                            <a href="{{ notebook.url }}" class="btn btn-success" type="button">Купить</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </li>
-
-
-    </ul>
+        </div>
 
 {% endblock %}

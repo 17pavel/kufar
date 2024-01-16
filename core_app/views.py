@@ -5,7 +5,7 @@ from .models import Notebooks, Images
 
 
 def notebooks_list(request):
-    notebooks = Notebooks.objects.all()
+    notebooks = Notebooks.objects.prefetch_related("images").all()
     paginator = Paginator(notebooks, 25)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)

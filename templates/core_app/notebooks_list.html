@@ -9,14 +9,11 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                 {% if page_obj %}
-{#                    {% for i in data %}#}
-{#                        <h6>{{ i.images }}</h6>#}
-{#                    {% endfor %}#}
                     {% for notebook in page_obj %}
 
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ notebook.images.first }}" height="250px">
+                                <img src="{{ notebook.images.all.0 }}" height="250px">
 
                                 <div class="card-body">
                                     <p class="card-text">{{ notebook.title | truncatechars:15 }}</p>
