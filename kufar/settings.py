@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core_app.apps.CoreAppConfig',
-    "debug_toolbar",
+    'debug_toolbar',
     'django_extensions',
+    'rest_framework',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -143,3 +145,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

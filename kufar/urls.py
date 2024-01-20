@@ -22,4 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core_app.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api-auth/logout/', include('api.urls')),
+
+    path('api/', include('api.urls')),
+
 ]

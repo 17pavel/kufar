@@ -17,7 +17,7 @@ def notebooks_list(request):
     return render(request, "core_app/notebooks_list.html", context=context)
 
 def notebook_detail(request, pk):
-    data = Notebooks.objects.get(pk=pk)
+    data = Notebooks.objects.prefetch_related("images").get(pk=pk)
 
     return render(request, "core_app/notebook_detail.html", {"notebook": data})
 
