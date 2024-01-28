@@ -16,7 +16,7 @@
                                 <img src="{{ notebook.images.all.0 }}" height="250px">
 
                                 <div class="card-body">
-                                    <p class="card-text">{{ notebook.title | truncatechars:15 }}</p>
+                                    <p class="card-text" style="font-family: 'Bitstream Charter'">{{ notebook.title | truncatechars:15 }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="{% url 'notebook_detail' notebook.id %}" type="button"
@@ -24,7 +24,7 @@
 
                                         </div>
                                         <p class="text-body-secondary"
-                                           style="font-family: 'JetBrains Mono ExtraBold'; font-size: 18px">{{ notebook.price }} BYN</p>
+                                           style="font-family: 'baskerville'; font-size: 18px">{{ notebook.price }} BYN</p>
                                     </div>
                                 </div>
                             </div>

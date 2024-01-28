@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'rest_framework',
-    'api'
+    'api',
+    'drf_yasg',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +147,20 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+
+]
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
 }
+
+LOGIN_REDIRECT_URL = 'notebooks'
+LOGOUT_REDIRECT_URL= 'login'
